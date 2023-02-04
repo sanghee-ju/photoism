@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      const desc1 = document.querySelector("#desc1");
+      const desc2 = document.querySelector("#desc2");
+      const desc3 = document.querySelector("#desc3");
+
+      /*
+텍스트가 보여지는 기능
+1. 몇 번째 사진에 마우스가 올라갔는지 확인(if 문)
+2. 해당 사진을 찾아 hideText class를 지워주고, showText class를 추가한다.
+*/
+      function showText(num) {
+        if (num === 1) {
+          document.querySelector("#desc1").classList.remove("hideText");
+          document.querySelector("#desc2").classList.add("showText");
+        } else if (num === 2) {
+          document.querySelector("#desc2").classList.remove("hideText");
+          document.querySelector("#desc2").classList.add("showText");
+        } else {
+          document.querySelector("#desc3").classList.remove("hideText");
+          document.querySelector("#desc3").classList.add("showText");
+        }
+      }
+
+      /*
+텍스트가 감춰지는 기능
+1. 몇 번째 사진에 마우스가 벗어났는지 확인(if 문)
+2. 해당 사진을 찾아 showText class를 지워주고, hideText class를 추가한다.
+*/
+      function hideText(num) {
+        if (num === 1) {
+          document.querySelector("#desc1").classList.remove("showText");
+          document.querySelector("#desc1").classList.add("hideText");
+        } else if (num === 2) {
+          document.querySelector("#desc2").classList.remove("showText");
+          document.querySelector("#desc2").classList.add("hideText");
+        } else {
+          document.querySelector("#desc3").classList.remove("showText");
+          document.querySelector("#desc3").classList.add("hideText");
+        }
+      }
+
+      function alertText(num) {
+        alert(`${num}번째 추억이에요!😁`);
+      }
+    </script>
+    <title>코딩네컷 만들기</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="photos">
+        <div
+          id="image1"
+          class="photo-frame"
+          onmouseover="hideText(1)"
+          onmouseout="showText(1)"
+          onclick="alertText(1)"
+        >
+          <span id="desc1" class="photo_description">🦝</span>
+        </div>
+        <div
+          id="image2"
+          class="photo-frame"
+          onmouseover="hideText(2)"
+          onmouseout="showText(2)"
+          onclick="alertText(2)"
+        >
+          <span id="desc2" class="photo_description">🐹</span>
+        </div>
+        <div
+          id="image3"
+          class="photo-frame"
+          onmouseover="hideText(3)"
+          onmouseout="showText(3)"
+          onclick="alertText(3)"
+        >
+          <span id="desc3" class="photo_description">🐼</span>
+        </div>
+        <div class="photo-frame">
+          <iframe
+            src="https://www.youtube.com/embed/Zm5C68KIni8"
+            frameborder="0"
+            class="video"
+          ></iframe>
+      </div>
+      <div class="footer">
+        <p class="f_title">Happy Lunch Time</p>
+        <p class="f_date">2023.02.03</p>
+      </div>
+    </div>
+  </body>
+</html>
